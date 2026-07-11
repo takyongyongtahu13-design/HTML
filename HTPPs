@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>A Small Adventure 🤍</title>
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:Arial,sans-serif;
+  background:#ffeef3;
+  text-align:center;
+}
+.box{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  width:85%;
+  max-width:450px;
+  box-shadow:0 5px 20px #0002;
+}
+button{
+  padding:12px 20px;
+  margin:10px;
+  border:none;
+  border-radius:25px;
+  background:#ff7fa3;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
+#moving{
+  position:relative;
+}
+.hidden{display:none;}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<div id="p1">
+<h1>Welcome to the game 🤍</h1>
+<p>Player name: <b>Mercy Yongtahu</b></p>
+<p>Ready for a small adventure?</p>
+<button onclick="next(2)">Hell yeahhh! 🤍</button>
+</div>
+
+
+<div id="p2" class="hidden">
+<h1>Memories 🤍</h1>
+
+<p>Do you still remember our first days together?</p>
+<button onclick="next(3)">Yes🤍</button>
+<button onclick="next(3)">Obviously😂</button>
+
+<p>Do you know how special you are to me?</p>
+<button onclick="next(3)">Yes🤞</button>
+<button id="moving" onmouseover="move(this)">Tell me again 🥹</button>
+</div>
+
+
+<div id="p3" class="hidden">
+<h1>Questions 😌</h1>
+
+<p>Who loves more? ❤️</p>
+<button id="love" onmouseover="moveFew(this)">Me</button>
+<button onclick="alert('Correct answer 🤍')">You</button>
+
+<p>Who is more annoying? 😂</p>
+<button id="annoy" onmouseover="moveFew(this)">You 🙄</button>
+<button onclick="alert('See? You know it 😌🤍')">Me 🤭</button>
+
+<p>Would you choose me again?</p>
+<button onclick="next(4)">Yes🤍</button>
+<button id="no" onmouseover="move(this)">No</button>
+
+</div>
+
+
+<div id="p4" class="hidden">
+<h1>The Heart Message 🤍</h1>
+<p>
+I know we’ve had ups and downs. We’ve made mistakes, we’ve grown, and we’ve changed…
+but one thing I never want to lose is the bond we have.
+<br><br>
+Thankyou for still being here, for understanding me, and for being someone who makes my days better🤍
+</p>
+
+<button onclick="next(5)">Continue 🤍</button>
+</div>
+
+
+<div id="p5" class="hidden">
+<h1>Big Question 🤍</h1>
+
+<p>Will you continue making more memories with me?</p>
+
+<button onclick="finish()">Yes🤍</button>
+<button id="finalNo" onmouseover="move(this)">No</button>
+
+</div>
+
+
+<div id="done" class="hidden">
+<h1>🤍</h1>
+<p>
+Thankyou for choosing me again.
+<br><br>
+I’ll keep trying to become someone who deserves your love🤍
+</p>
+</div>
+
+
+</div>
+
+
+<script>
+
+function next(page){
+ document.querySelectorAll(".box > div").forEach(x=>x.classList.add("hidden"));
+ document.getElementById("p"+page).classList.remove("hidden");
+}
+
+function finish(){
+ document.querySelectorAll(".box > div").forEach(x=>x.classList.add("hidden"));
+ document.getElementById("done").classList.remove("hidden");
+}
+
+function move(btn){
+ btn.style.transform=
+ `translate(${Math.random()*250-125}px,${Math.random()*150-75}px)`;
+}
+
+function moveFew(btn){
+ btn.style.transform=
+ `translate(${Math.random()*120-60}px,${Math.random()*80-40}px)`;
+}
+
+</script>
+
+</body>
+</html>
